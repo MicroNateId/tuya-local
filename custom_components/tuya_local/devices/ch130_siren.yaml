@@ -1,0 +1,136 @@
+name: Voice alert siren
+products:
+  - id: vjadigf97kd65cuy
+    model: CH130
+entities:
+  - entity: siren
+    dps:
+      - id: 1
+        name: tone
+        type: string
+        mapping:
+          - dps_val: alarm_sound
+            value: sound
+          - dps_val: alarm_light
+            value: light
+          - dps_val: alarm_sound_light
+            value: sound+light
+            default: true
+          - dps_val: normal
+            value: "off"
+      - id: 5
+        name: volume_level
+        type: string
+        mapping:
+          - dps_val: mute
+            value: 0.0
+          - dps_val: low
+            value: 0.33
+          - dps_val: middle
+            value: 0.67
+          - dps_val: high
+            value: 1.0
+      - id: 7
+        name: duration
+        type: integer
+        optional: true
+        range:
+          min: 10
+          max: 1800
+        mapping:
+          - step: 10
+        unit: s
+  - entity: light
+    translation_key: nightlight
+    dps:
+      - id: 22
+        type: boolean
+        name: switch
+  - entity: select
+    name: Alarm light mode
+    icon: "mdi:alarm-light"
+    category: config
+    dps:
+      - id: 23
+        type: string
+        name: option
+        mapping:
+          - dps_val: Breathing
+            value: Alternate
+          - dps_val: Rainbow
+            value: Rainbow
+          - dps_val: Redflash
+            value: Red flash
+  - entity: select
+    name: Voice alert
+    icon: "mdi:account-voice"
+    category: config
+    dps:
+      - id: 21
+        type: string
+        name: option
+        mapping:
+          - dps_val: "1"
+            value: Ding dong
+          - dps_val: "2"
+            value: Doorbell
+          - dps_val: "3"
+            value: Alarm
+          - dps_val: "4"
+            value: Door opened
+          - dps_val: "5"
+            value: SOS
+          - dps_val: "6"
+            value: Glass break
+          - dps_val: "7"
+            value: Door lock
+          - dps_val: "8"
+            value: Smoke
+          - dps_val: "9"
+            value: Gas leak
+          - dps_val: "10"
+            value: Carbon monoxide
+          - dps_val: "11"
+            value: "PM2.5"
+          - dps_val: "12"
+            value: CO2
+          - dps_val: "13"
+            value: "Formaldehyde/TVOC"
+          - dps_val: "14"
+            value: Water leak
+          - dps_val: "15"
+            value: Illumination
+          - dps_val: "16"
+            value: Liquid level
+          - dps_val: "17"
+            value: Motion
+          - dps_val: "18"
+            value: Wind
+          - dps_val: "19"
+            value: "Fall (person)"
+          - dps_val: "20"
+            value: Temperature
+          - dps_val: "21"
+            value: Soil
+          - dps_val: "22"
+            value: Water quality
+          - dps_val: "23"
+            value: Water pH
+          - dps_val: "24"
+            value: Soil salinity
+          - dps_val: "25"
+            value: Soil temperature
+          - dps_val: "26"
+            value: Tamper
+          - dps_val: "27"
+            value: Camera
+          - dps_val: "28"
+            value: Heart rate
+          - dps_val: "29"
+            value: Pressure
+          - dps_val: "30"
+            value: Vibration
+          - dps_val: "31"
+            value: "Fall (device)"
+          - dps_val: "32"
+            value: Tilt
